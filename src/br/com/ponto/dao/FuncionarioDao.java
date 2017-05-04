@@ -13,9 +13,9 @@ public class FuncionarioDao {
 
 	public List<Funcionario> listaFuncionarios(Gestor gestor) {
 		EntityManager em = new JPAUtil().getEntityManager();
-		TypedQuery<Funcionario> query = em.createQuery("FROM Funcionario f WHERE f.teamLeader = :pTLeader AND f.perfil = 1 AND f.status = 1 ORDER BY f.nome",Funcionario.class);
+		TypedQuery<Funcionario> query = em.createQuery("FROM Funcionario f WHERE f.gestor = :pGestor AND f.perfil = 1 AND f.status = 1 ORDER BY f.nome",Funcionario.class);
 
-		query.setParameter("pTLeader", gestor);
+		query.setParameter("pGestor", gestor);
 		
 		List<Funcionario> listaFuncionarios = new ArrayList<Funcionario>();
 
@@ -26,11 +26,11 @@ public class FuncionarioDao {
 		return listaFuncionarios;
 	}
 
-	public Funcionario getFuncionario(String employee) {
+	public Funcionario getFuncionario(String matricula) {
 		EntityManager em = new JPAUtil().getEntityManager();
-		TypedQuery<Funcionario> query = em.createQuery("FROM Funcionario f WHERE f.employeeId = :pEmployeeId",Funcionario.class);
+		TypedQuery<Funcionario> query = em.createQuery("FROM Funcionario f WHERE f.matricula = :pMatricula",Funcionario.class);
 
-		query.setParameter("pEmployeeId", employee);
+		query.setParameter("pMatricula", matricula);
 
 		Funcionario funcionario =query.getSingleResult();
 
@@ -39,11 +39,11 @@ public class FuncionarioDao {
 		return funcionario;
 	}
 	
-	public List<Funcionario> getFuncionarioPorTeamLeader(long idTLeader) {
+	public List<Funcionario> getFuncionarioPorTeamLeader(long gestor) {
 		EntityManager em = new JPAUtil().getEntityManager();
 		TypedQuery<Funcionario> query = em
-				.createQuery("FROM Funcionario f WHERE f.teamLeader = :pIdTLeader AND f.perfil = 1 AND f.status = 1 ORDER BY f.nome", Funcionario.class);
-		query.setParameter("pIdTLeader", idTLeader);
+				.createQuery("FROM Funcionario f WHERE f.gestor = :pGestor AND f.perfil = 1 AND f.status = 1 ORDER BY f.nome", Funcionario.class);
+		query.setParameter("pGestor", gestor);
 		
 		List<Funcionario> listFuncionario = query.getResultList();
 		

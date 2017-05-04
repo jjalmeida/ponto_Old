@@ -73,15 +73,14 @@ public class TestBanco {
 		}
 	}
 
-public void adicionaFuncionario(){
-		
-		
+	public void adicionaFuncionario() {
+
 		Gestor gestor = new Gestor();
 		gestor = new DAO<Gestor>(Gestor.class).buscaPorId(1);
-		
+
 		Escala escala = new Escala();
 		escala = new DAO<Escala>(Escala.class).buscaPorId(1);
-		
+
 		Funcionario funcionario = new Funcionario();
 		funcionario.setNome("Alyson de Souza Dias");
 		funcionario.setCpf("38181522842");
@@ -89,26 +88,26 @@ public void adicionaFuncionario(){
 		funcionario.setGestor(gestor);
 		funcionario.setStatus(1);
 		funcionario.setEscala(escala);
-		
+
 		new DAO<Funcionario>(Funcionario.class).adiciona(funcionario);
-		
+
 	}
 
-	public void atualizaSenha(){
+	public void atualizaSenha() {
 		Funcionario f = new DAO<Funcionario>(Funcionario.class).buscaPorId(1);
 		f.setSenha("123");
 		f.setPerfil(1);
-		
+
 		new DAO<Funcionario>(Funcionario.class).atualiza(f);
 	}
 
 	public static void main(String[] args) {
 		TestBanco tb = new TestBanco();
-		
+
 		//tb.adicionaGestor();
-		//tb.adicionaEscala();
-		//tb.adicionaFuncionario();
-		
+		 //tb.adicionaEscala();
+		 //tb.adicionaFuncionario();
+
 		tb.atualizaSenha();
 	}
 }
