@@ -12,10 +12,10 @@
 				
 				 	<f:facet name="header">Login:</f:facet>
 				
-					<p:outputLabel value="Login: "/>
+					<p:outputLabel for="login" value="Login: "/>
 					<p:inputText value="#{loginBean.funcionario.matricula}" required="true" id="login" />
 						
-					<p:outputLabel value="Senha: " />
+					<p:outputLabel for="senha" value="Senha: " />
 					<h:inputSecret value="#{loginBean.funcionario.senha}" required="true" id="senha" />
 
 				    <f:facet name="footer">  

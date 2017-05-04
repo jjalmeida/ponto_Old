@@ -4,7 +4,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 
 import br.com.ponto.dao.FuncionarioDao;
 import br.com.ponto.entity.Funcionario;
@@ -17,8 +16,7 @@ public class LoginBean {
 
 	private FuncionarioDao dao = new FuncionarioDao();
 
-	@Inject
-	UsuarioLogadoBean usuarioLogado;
+	UsuarioLogadoBean usuarioLogado = new UsuarioLogadoBean();
 
 	MenuBean menu = new MenuBean();
 
@@ -27,23 +25,21 @@ public class LoginBean {
 	}
 
 	public String efetuaLogin() {
-
+		
 		Funcionario usuarioEncontrado = this.dao.getFuncionario(funcionario
 				.getMatricula());
-
-		if (usuarioEncontrado != null && possuiMesmaSenha(usuarioEncontrado)) {
+		
+if (usuarioEncontrado != null && possuiMesmaSenha(usuarioEncontrado)) {
 
 			usuarioLogado.logar(usuarioEncontrado);
-			
+
 			if (usuarioEncontrado.getSenha().equals("1234")) {
 				return "/reset-senha-padrao?faces-redirect=true";
 			} else {
 
 				if (usuarioEncontrado.getPerfil() != 1) {
-
 					return menu.paginaFuncionarios();
 				} else {
-
 					return menu.paginaAnalistaPonto();
 				}
 			}
