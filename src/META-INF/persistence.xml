@@ -4,7 +4,12 @@
 	version="2.0">
 
 	<persistence-unit name="ponto" transaction-type="RESOURCE_LOCAL">
-		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>	
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		
+		<class>br.com.ponto.entity.Funcionario</class>
+		<class>br.com.ponto.entity.Escala</class>
+		<class>br.com.ponto.entity.Gestor</class>
+		<class>br.com.ponto.entity.MarcaPonto</class>	
 	
 		<properties>
 			

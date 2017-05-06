@@ -25,11 +25,11 @@ public class LoginBean {
 	}
 
 	public String efetuaLogin() {
-		
+
 		Funcionario usuarioEncontrado = this.dao.getFuncionario(funcionario
 				.getMatricula());
-		
-if (usuarioEncontrado != null && possuiMesmaSenha(usuarioEncontrado)) {
+
+		if (usuarioEncontrado != null && possuiMesmaSenha(usuarioEncontrado)) {
 
 			usuarioLogado.logar(usuarioEncontrado);
 

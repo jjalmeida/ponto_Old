@@ -39,7 +39,7 @@ public class MenuBean implements Serializable{
 	public String paginaAnalistaPonto() {
 		System.out.println("Redireciona para a pagina de ponto...");
 		this.index = 0;
-		return "/analista/ponto?faces-redirect=true";
+		return "/analista/ponto";
 	}
 	
 	public String paginaAnalistaPontoConsulta() {

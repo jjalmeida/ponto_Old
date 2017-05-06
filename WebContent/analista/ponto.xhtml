@@ -12,8 +12,8 @@
 		<div class="infoDoUser">
 			<h:form>
 				<p:panelGrid columns="4" styleClass="painelNoBorder">
-					<p:outputLabel value="EmployeeID:" for="employeeId" />
-					<p:outputLabel id="employeeId"
+					<p:outputLabel value="EmployeeID:" for="matricula" />
+					<p:outputLabel id="matricula"
 						value="#{usuarioLogadoBean.usuario.matricula}" />
 					<p:outputLabel value="Nome:" for="nome" />
 					<p:outputLabel id="nome" value="#{usuarioLogadoBean.usuario.nome}" />
@@ -34,8 +34,8 @@
 			<p:panelGrid columns="1" styleClass="painelNoBorder"
 				style="margin-top: 25px;margin-bottom: 25px;margin-left: 150px;">
 				<p:clock pattern="HH:mm:ss" mode="server" />
-				<p:commandButton value="MARCAR" action="#{pontoBean.marcarPonto(usuarioLogadoBean.usuario)}"
-					update=":listaPonto" actionListener="#{pontoBean.menssagem()}" />
+				<p:commandButton value="MARCAR" update=":listaPonto" 
+				actionListener="#{pontoBean.marcarPonto(usuarioLogadoBean.usuario)}" />
 			</p:panelGrid>
 		</div>
 		
